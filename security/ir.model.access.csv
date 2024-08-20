@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_support_ticket,access_support_ticket,real-estate-ads.model_support_ticket,base.group_user,1,1,1,1
+access_support_ticket_type,access_support_ticket_type,real-estate-ads.model_support_ticket_type,base.group_user,1,1,1,1
+access_support_ticket_status,access_support_ticket_status,real-estate-ads.model_support_ticket_status,base.group_user,1,1,1,1
+access_support_ticket_respone,access_support_ticket_respone,real-estate-ads.model_support_ticket_respone,base.group_user,1,1,1,1
+
+
