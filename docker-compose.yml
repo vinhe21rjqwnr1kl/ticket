@@ -1,0 +1,41 @@
+version: "3.0"
+
+services:
+  odoo_1:
+    image: odoo:17
+    container_name: odoo_1
+    depends_on:
+      - db_1
+    ports:
+      - "8069:8069"
+    volumes:
+      - ./config_1:/etc/odoo
+      # - ./custom-addons_1:/mnt/addons
+      - ./custom-addons:/mnt/addons
+
+    environment:
+      - HOST=db_1
+      - USER=odoo
+      - PASSWORD=odoo
+      - POSTGRES_DB=postgres
+    restart: always
+    networks:
+      - odoo-network
+
+  db_1:
+    image: postgres:15
+    container_name: db_1
+    environment:
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_DB=postgres
+    volumes:
+      - ./data/postgres_1:/var/lib/postgresql/data
+    restart: always
+    ports:
+      - "5433:5432"
+    networks:
+      - odoo-network
+
+networks:
+  odoo-network:
